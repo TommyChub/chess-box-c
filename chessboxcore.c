@@ -1,6 +1,7 @@
-#include "stdio.h"
 #include "chessboxcore.h"
+#include <stdio.h>
 
 int main() {
+    printf("Hello, World!\n");
     return 0;
 }
