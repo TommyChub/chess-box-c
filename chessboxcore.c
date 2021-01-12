@@ -2,6 +2,12 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, World!\n");
+    AllInit();
+
+    int num = 2;
+    int nuts = 4;
+
+    ASSERT(num==nuts);
+
     return 0;
 }
