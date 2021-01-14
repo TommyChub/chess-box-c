@@ -3,6 +3,9 @@
 #include "bitboards.h"
 #include "enums.h"
 
+U64 setMask[64];
+U64 clearMask[64];
+
 // Bit scan table
 const int BitTable[64] = {
         63, 30, 3, 32, 25, 41, 22, 33,
@@ -23,6 +26,14 @@ int PopBit(U64 *bb) {
     return BitTable[(fold * 0x783a9b23) >> 26];
 }
 
+void ClearBit(U64 *bb, int sq) {
+    *bb &= clearMask[(sq)];
+}
+
+void SetBit(U64 *bb, int sq) {
+    *bb |= setMask[(sq)];
+}
+
 // read up on least significant bits
 int CountBits(U64 bit) {
     int count = 0;
@@ -31,6 +42,20 @@ int CountBits(U64 bit) {
         bit &= bit - 1;
     }
     return count;
+}
+
+void InitBitMasks() {
+    int index = 0;
+
+    for(index = 0; index < 64; index++) {
+        setMask[index] = 0ULL;
+        clearMask[index] = 0ULL;
+    }
+
+    for(index = 0; index < 64; index++) {
+        setMask[index] |= (1ULL << index);
+        clearMask[index] = ~setMask[index];
+    }
 }
 
 void PrintBitboard(U64 bb) {
@@ -53,7 +78,6 @@ void PrintBitboard(U64 bb) {
             } else {
                 printf("-");
             }
-
         }
         printf("\n");
     }
