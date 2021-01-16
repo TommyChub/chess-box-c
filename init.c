@@ -1,9 +1,14 @@
-#include "Core/chessboxcore.h"
+#include "Core/core.h"
 #include "enums.h"
 #include "bitboards.h"
+#include <stdlib.h>
 
 int Sq120ToSq64[BRD_SQ_NUM];
 int Sq64ToSq120[64];
+
+U64 PieceKeys[13][BRD_SQ_NUM];
+U64 SideKey;
+U64 CastleKeys[16];
 
 void InitSq120To64() {
 

@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "Core/chessboxcore.h"
+#include "Core/core.h"
 #include "bitboards.h"
 #include "enums.h"
 
