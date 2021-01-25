@@ -2,11 +2,11 @@
 #define CHESS_BOX_C_BITBOARDS_H
 
 // bitboard.c
-void PrintBitboard(U64 bb);
-void InitBitMasks();
-int PopBit(U64 *bb);
-void ClearBit(U64 *bb, int sq);
-void SetBit(U64 *bb, int sq);
-int CountBits(U64 bit);
+void print_bitboard(U64 bb);
+void init_bit_masks();
+int pop_bit(U64 *bb);
+void clear_bit(U64 *bb, int sq);
+void set_bit(U64 *bb, int sq);
+int count_bits(U64 bit);
 
 #endif //CHESS_BOX_C_BITBOARDS_H

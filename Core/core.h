@@ -23,10 +23,10 @@ typedef unsigned long long U64;
 /* MACROS */
 #define NAME "ChessBoxC V1.0"
 #define BRD_SQ_NUM 120
-#define MAXGAMEMOVES 2048
-#define FR2SQ(f,r) ( (21 + (f)) ) + ( (r) * 10 )
-#define SQ64(sq120) (Sq120ToSq64[(sq120)])
-#define SQ120(sq64) (Sq64ToSq120[(sq64)])
+#define MAX_GAME_MOVES 2048
+#define FR_2_SQ(f,r) ( (21 + (f)) ) + ( (r) * 10 )
+#define SQ_64(sq120) (Sq120ToSq64[(sq120)])
+#define SQ_120(sq64) (Sq64ToSq120[(sq64)])
 #define POP(b) PopBit(b)
 #define CNT(b) CountBits(b)
 
@@ -40,7 +40,7 @@ typedef struct {
     int fiftyMove;
     U64 posKey;
 
-} S_UNDO;
+} Undo;
 
 typedef struct {
 
@@ -65,12 +65,12 @@ typedef struct {
     int majorPiece[3];
     int minorPiece[3];
 
-    S_UNDO history[MAXGAMEMOVES];
+    Undo history[MAX_GAME_MOVES];
 
     // piece list
     int pList[13][10];
 
-} S_BOARD;
+} Board;
 
 /* GLOBALS */
 extern int Sq120ToSq64[BRD_SQ_NUM];
